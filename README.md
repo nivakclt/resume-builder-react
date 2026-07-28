@@ -1,31 +1,36 @@
-# Resume Builder
+# 🚀 AI Resume Builder
 
-A modern Resume Builder web application built with **React.js** and **Vite** that helps users create professional resumes quickly and easily.
+A modern AI-powered Resume Builder built with **React**, **Material UI**, and **Vite** that enables users to create professional resumes through a clean multi-step interface. Users can enter their personal information, education, experience, projects, skills, and generate a polished resume ready for download.
 
-## 🚀 Features
+---
 
-- Create professional resumes
-- Modern and responsive UI
-- Resume templates
-- Cover Letter section
-- Job information section
-- Easy navigation with React Router
-- Fast performance using Vite
+## 🌟 Features
 
-## 🛠️ Tech Stack
+- 📝 Multi-step resume creation
+- 👤 Personal information form
+- 📞 Contact details section
+- 🎓 Education details
+- 💼 Work experience
+- 🚀 Projects & Achievements
+- 🛠️ Technical & Soft Skills
+- 📄 Resume Preview
+- 📥 Download resume
+- 📱 Fully responsive design
+- 🎨 Modern Material UI components
+- ⚡ Fast performance with Vite
+- 
 
-- React.js
-- Vite
-- React Router DOM
-- Bootstrap 5
-- HTML5
-- CSS3
-- JavaScript (ES6)
+## 🎯 Future Improvements
 
-## 📈 Future Improvements
-
+- AI-generated resume summaries
 - Multiple resume templates
+- Dark mode
+- PDF export
 - User authentication
-- Theme customization
-- Resume preview
-- AI-powered resume suggestions
+- Cloud resume storage
+- Resume sharing via link
+- ATS score checker
+- AI grammar suggestions
+- AI skill recommendations
+
+
