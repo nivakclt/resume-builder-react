@@ -23,7 +23,7 @@ function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <img src="https://cdn-icons-png.flaticon.com/512/1250/1250303.png" width={"50px"} alt="" />
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/resume-icon-svg-download-png-7959858.png?f=webp&w=128" width={"50px"} alt="" />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             rBuilder

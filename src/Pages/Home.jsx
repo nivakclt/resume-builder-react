@@ -18,7 +18,7 @@ function Home() {
         <div className='w-50 border border-2 border-light shadow text-center text-light p-3' style={{backgroundColor:"rgba(0, 0, 0, 0.29)"}}>
           <h3>Build Your Resume</h3>
           <h5>Your Skills,Your Story,Your Next Job All in One</h5>
-          <Link to={"/steps"} style={{ backgroundColor: ' rgba(4, 28, 73, 0.93)', color: 'white' }} className='btn btn-primary-outline'>Make your Resume Now!</Link>
+          <Link to={"/Steps"} style={{ backgroundColor: ' rgba(4, 28, 73, 0.93)', color: 'white' }} className='btn btn-primary-outline'>Make your Resume Now!</Link>
         </div>
       </div>
 
@@ -44,7 +44,37 @@ function Home() {
           className="img-fluid rounded shadow" />    
              </div>
         </div>
+      </div>
 
+      {/* Banner */}
+      <div style={{backgroundImage:"url('https://chatgpt.com/backend-api/estuary/content?id=file_0000000098f082308b58956f6086bd85&ts=495899&p=fs&cid=1&sig=26124c17f121ecfb2af99d5c19bd316b680b98f0d9277cee683e11f59dd59880&v=0')",
+        height:'70vh',
+        backgroundSize:'cover',
+        backgroundPosition:'center',
+        backgroundAttachment:'fixed'
+      }}>
+      </div>
+
+      {/* testimony */}
+      <div className='container'>
+        <h5 className='text-center display-4 my-2'>Testimony</h5>
+        <div className="row">
+          <div className="col-sm-12 col-md-6">
+            <h4>Trusted By Proffessionals World Wide</h4>
+            <p style={{textAlign:"justify"}}>
+            Using this resume builder has completely changed the way I approach job applications. The platform is incredibly user-friendly, with a clean and modern interface that made creating my resume feel effortless from start to finish.</p>
+            <p style={{textAlign:"justify"}}>
+            Using this resume builder has completely changed the way I approach job applications. The platform is incredibly user-friendly, with a clean and modern interface that made creating my resume feel effortless from start to finish.</p>
+            <p style={{textAlign:"justify"}}>
+            Using this resume builder has completely changed the way I approach job applications. The platform is incredibly user-friendly, with a clean and modern interface that made creating my resume feel effortless from start to finish.</p>
+            <p style={{textAlign:"justify"}}>
+            Using this resume builder has completely changed the way I approach job applications. The platform is incredibly user-friendly, with a clean and modern interface that made creating my resume feel effortless from start to finish.</p>
+          </div>
+          <div className='col-sm-12 col-md-6'>
+            <img src="https://chatgpt.com/backend-api/estuary/content?id=file_0000000089e88230af799808f610e1b8&ts=495899&p=fs&cid=1&sig=873be5d61aa76864fc26b6a4eb71a09b2278757f9c85c5aff6d81b7ae41b7939&v=0" alt='' 
+            className="img-fluid rounded shadow"/>
+          </div>
+        </div>
       </div>
     </div>
   )
