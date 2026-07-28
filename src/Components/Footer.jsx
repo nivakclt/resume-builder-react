@@ -10,13 +10,13 @@ import { CiFacebook } from "react-icons/ci";
 function Footer() {
   return (
     <>
-    <div className='container-fluid p-5 text-center text-light' style={{backgroundColor:' rgba(4, 28, 73, 0.93)'}}>
-      <h2>Contact With Us</h2>
-      <h4><FaEnvelopeOpenText/> {" "}resumebuilder@gmail.com</h4>
-      <h4><MdOutlinePhone/>2345678902</h4>
-      <h4><CiFacebook/><FaInstagram/><FaWhatsapp/></h4>
-      <h3>Designed and Build using <FaHeart className='text-danger'/> React.js</h3>
-    </div>
+      <div className='container-fluid p-5 text-center text-light' style={{ backgroundColor: ' rgba(4, 28, 73, 0.93)' }}>
+        <h2>Contact With Us</h2>
+        <h4><FaEnvelopeOpenText /> {" "}resumebuilder@gmail.com</h4>
+        <h4><MdOutlinePhone />2345678902</h4>
+        <h4><CiFacebook /><FaInstagram /><FaWhatsapp /></h4>
+        <h3>Designed and Build using <FaHeart className='text-danger' /> React.js</h3>
+      </div>
     </>
   )
 }

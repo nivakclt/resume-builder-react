@@ -7,7 +7,7 @@ import { IoDocuments } from "react-icons/io5";
 function ResumeSteps() {
   return (
     <>
-    <div className="container-fluid p-5" style={{minHeight:'100vh'}}>
+    <div className="container-fluid p-5" style={{minHeight:'100vh',backgroundColor: ' rgba(4, 28, 73, 0.42)'}}>
       <h1 className='text-center mb-5 mt-4'>Create a Job Winning Resume in Minites</h1>
       <div className=' row justify-content-around h-50'>
       {/* card1 */}
@@ -26,7 +26,7 @@ function ResumeSteps() {
         <h4 className='fw-bold'>Step 2</h4>
       </div>
       <div className='text-center'>
-        <Link className="btn btn-primary" to={'/form'} style={{color:'white'}}>Lets Start</Link>
+        <Link className="btn btn-primary" to={'/form'} style={{backgroundColor: ' rgba(4, 28, 73, 0.93)',color:'white'}}>Lets Start</Link>
       </div>
       </div>
       </div>
