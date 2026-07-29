@@ -4,7 +4,7 @@ import InputForm from '../Components/InputForm'
 
 function UserForm() {
   return (
-    <div className='container-fluid' style={{minHeight:'80vh'}}>
+    <div className='container-fluid w-100 py-4 px-4 shadow-lg rounded bg-white' style={{minHeight:'80vh'}}>
       <div className='row'>
         <div className='col-md-6'>
           <InputForm/>

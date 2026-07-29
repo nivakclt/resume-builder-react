@@ -11,7 +11,7 @@ function ViewResume() {
   return (
     <div className='container'>
       <h2 className='text-center my-2'>Resume Preview</h2>
-      <div className='row'>
+      <div className='row '>
         <div className='col-md-2'></div>
         <div className='col-md-8'>
           <div className="d-flex justify-content-center">
@@ -19,10 +19,10 @@ function ViewResume() {
             <button className='btn text-primary'><FaFileDownload style={{fontSize:"35px"}}/></button>
             {/* Edit  */}
             <Edit/>
-            {/*   p review */}
+            {/*   preview */}
             <Link className='btn text-secondary' to={"/history"}><FaHistory style={{fontSize:"35px"}}/></Link>
-            {/*   backform */}
-            <Link className='btn text-primary'><FaBackward style={{fontSize:"35px"}}/></Link>
+            {/*  backform */}
+            <Link className='btn  text-primary' to={'/form'}><FaBackward style={{fontSize:"35px"}}/></Link>
           </div>
           <Preview/>
         </div>
