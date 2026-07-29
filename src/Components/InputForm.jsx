@@ -89,6 +89,7 @@ function InputForm() {
                         <TextField id="standard-basic" label="Full Name" variant="standard" />
                         <TextField id="standard-basic" label="Location" variant="standard" />
 
+
                     </div>
                 </>
             )
@@ -97,9 +98,9 @@ function InputForm() {
                     <h3>Contact Details</h3>
                     <div className="p-3 row">
                         <TextField id="standard-basic" label="Email" variant="standard" />
-                        <TextField id="standard-basic" label="  Contact no:" variant="standard" />
+                        <TextField id="standard-basic" label="Contact Number:" variant="standard" />
                         <TextField id="standard-basic" label="LinkedIn Link" variant="standard" />
-                        <TextField id="standard-basic" label="Github Link" variant="standard" />
+                        <TextField id="standard-basic" label="Github Profile" variant="standard" />
                     </div>
                 </>
             )
@@ -114,7 +115,7 @@ function InputForm() {
                     </div>
                 </>
             )
-            case 4: return (
+            case 3: return (
                 <>
                     <div className='p-3'>
                         Our AI will generate Skills & Summary according to your job role.
@@ -174,14 +175,13 @@ function InputForm() {
                             Back
                         </Button>
                         <Box sx={{ flex: '1 1 auto' }} />
-                        {isStepOptional(activeStep) && (
-                            <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                                Skip
-                            </Button>
-                        )}
+                       
                         <Button onClick={handleNext} ref={nextButtonRef}>
-                            {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                            {activeStep === steps.length - 1 ? 
+                            <Button>GENERATE AI SKILLS</Button>
+                         : 'Next'}
                         </Button>
+
                     </Box>
                 </React.Fragment>
             )}
