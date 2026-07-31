@@ -32,6 +32,7 @@ function InputForm() {
         college: "",
         graduationYear: ""
     });
+    // console.log(resumeData)
 
     const [age, setAge] = React.useState('');
     const handleChange = (event) => {
@@ -111,15 +112,15 @@ function InputForm() {
                 <>
                     <h3>Personal Details</h3>
                     <div className="p-3 row">
-                        <TextField id="standard-basic" onChange={(e) = > { setResumeData((...resumeAndPrerenderToNodeStream, fullname:e.target.value))}} label="Full Name" variant="standard" />
-                        <TextField id="standard-basic" onChange={(e) = > { setResumeData((...resumeAndPrerenderToNodeStream, fullname:e.target.value))}} label="Location" variant="standard" />
+                        <TextField id="standard-basic" onChange={(e) => { setResumeData({...resumeData, fullname:e.target.value})}} label="Full Name" variant="standard" />
+                        <TextField id="standard-basic" onChange={(e) => { setResumeData({...resumeData, location:e.target.value})}} label="Location" variant="standard" />
                         <FormControl variant="standard" sx={{ my: 1, minWidth: 120 }}>
-                            <InputLabel id="demo-simple-select-standard-label">Choose Job Title</InputLabel>
+                            <InputLabel id="demo-simple-select-standard-label" >Choose Job Title</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
                                 id="demo-simple-select-standard"
-                                value={age}
-                                onChange={handleChange}
+                                value={resumeData.jobTitle}
+                                onChange={(e) => { setResumeData({...resumeData, jobTitle:e.target.value})}}
                             >
                                 {jobRoles.jobRoles.map((item) => (
                                     <MenuItem value={item}>
@@ -137,10 +138,10 @@ function InputForm() {
                 <>
                     <h3>Contact Details</h3>
                     <div className="p-3 row">
-                        <TextField id="standard-basic" label="Email" variant="standard" />
-                        <TextField id="standard-basic" label="Contact Number:" variant="standard" />
-                        <TextField id="standard-basic" label="LinkedIn Link" variant="standard" />
-                        <TextField id="standard-basic" label="Github Profile" variant="standard" />
+                        <TextField id="standard-basic" label="Email" onChange={(e) => { setResumeData({...resumeData, email:e.target.value})}} variant="standard" />
+                        <TextField id="standard-basic" label="Contact Number:" variant="standard" onChange={(e) => { setResumeData({...resumeData, phone:e.target.value})}} />
+                        <TextField id="standard-basic" label="LinkedIn Link" variant="standard"onChange={(e) => { setResumeData({...resumeData, linkedin:e.target.value})}} />
+                        <TextField id="standard-basic" label="Github Profile" variant="standard" onChange={(e) => { setResumeData({...resumeData, github:e.target.value})}} />
                     </div>
                 </>
             )
@@ -148,9 +149,9 @@ function InputForm() {
                 <>
                     <h3>Educational Details</h3>
                     <div className="p-3 row">
-                        <TextField id="standard-basic" label="Bachelor's Degree" variant="standard" />
-                        <TextField id="standard-basic" label="University/College Name" variant="standard" />
-                        <TextField id="standard-basic" label="Year of Graduation" variant="standard" />
+                        <TextField id="standard-basic" label="Bachelor's Degree" variant="standard" onChange={(e) => { setResumeData({...resumeData, degree:e.target.value})}}/>
+                        <TextField id="standard-basic" label="University/College Name" variant="standard" onChange={(e) => { setResumeData({...resumeData, college:e.target.value})}} />
+                        <TextField id="standard-basic" label="Year of Graduation" variant="standard" onChange={(e) => { setResumeData({...resumeData, graduationYear:e.target.value})}} />
 
                     </div>
                 </>
