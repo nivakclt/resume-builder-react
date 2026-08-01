@@ -12,12 +12,14 @@ import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import jobRoles from "../assets/it_job_roles.json";
+import jobskills from "../assets/jobskills.json"
+import summery from "../assets/professional_summary.json"
 
 
 
 const steps = ['Basic Informations', 'Contact Details', 'Educational Details', 'Preview and Submit'];
 
-function InputForm() {
+function InputForm({ setRes }) {
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
     const [resumeData, setResumeData] = useState({
@@ -30,10 +32,20 @@ function InputForm() {
         github: "",
         degree: "",
         college: "",
-        graduationYear: ""
+        graduationYear: "",
+        skills: [],
+        summary: ""
     });
     // console.log(resumeData)
+    const generate = () => {
+        setResumeData({
+            ...resumeData,
+            skills: jobskills[resumeData.jobTitle],
+            summary: summery[resumeData.jobTitle]
+        });
 
+        handleNext();
+    };
     const [age, setAge] = React.useState('');
     const handleChange = (event) => {
         setAge(event.target.value);
@@ -106,21 +118,26 @@ function InputForm() {
     //     }
     // }, [activeStep, isStepOptional]);
 
+    React.useEffect(() => {
+        setRes(resumeData)
+
+    }, [resumeData])
+
     const renderStepContent = (stepCount) => {
         switch (stepCount) {
             case 0: return (
                 <>
                     <h3>Personal Details</h3>
                     <div className="p-3 row">
-                        <TextField id="standard-basic" onChange={(e) => { setResumeData({...resumeData, fullname:e.target.value})}} label="Full Name" variant="standard" />
-                        <TextField id="standard-basic" onChange={(e) => { setResumeData({...resumeData, location:e.target.value})}} label="Location" variant="standard" />
+                        <TextField id="standard-basic" value={resumeData.fullname} onChange={(e) => { setResumeData({ ...resumeData, fullname: e.target.value }) }} label="Full Name" variant="standard" />
+                        <TextField id="standard-basic" value={resumeData.location} onChange={(e) => { setResumeData({ ...resumeData, location: e.target.value }) }} label="Location" variant="standard" />
                         <FormControl variant="standard" sx={{ my: 1, minWidth: 120 }}>
                             <InputLabel id="demo-simple-select-standard-label" >Choose Job Title</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
                                 id="demo-simple-select-standard"
                                 value={resumeData.jobTitle}
-                                onChange={(e) => { setResumeData({...resumeData, jobTitle:e.target.value})}}
+                                onChange={(e) => { setResumeData({ ...resumeData, jobTitle: e.target.value }) }}
                             >
                                 {jobRoles.jobRoles.map((item) => (
                                     <MenuItem value={item}>
@@ -138,10 +155,10 @@ function InputForm() {
                 <>
                     <h3>Contact Details</h3>
                     <div className="p-3 row">
-                        <TextField id="standard-basic" label="Email" onChange={(e) => { setResumeData({...resumeData, email:e.target.value})}} variant="standard" />
-                        <TextField id="standard-basic" label="Contact Number:" variant="standard" onChange={(e) => { setResumeData({...resumeData, phone:e.target.value})}} />
-                        <TextField id="standard-basic" label="LinkedIn Link" variant="standard"onChange={(e) => { setResumeData({...resumeData, linkedin:e.target.value})}} />
-                        <TextField id="standard-basic" label="Github Profile" variant="standard" onChange={(e) => { setResumeData({...resumeData, github:e.target.value})}} />
+                        <TextField id="standard-basic" label="Email" value={resumeData.email} onChange={(e) => { setResumeData({ ...resumeData, email: e.target.value }) }} variant="standard" />
+                        <TextField id="standard-basic" label="Contact Number:" value={resumeData.phone} variant="standard" onChange={(e) => { setResumeData({ ...resumeData, phone: e.target.value }) }} />
+                        <TextField id="standard-basic" label="LinkedIn Link" value={resumeData.linkedin} variant="standard" onChange={(e) => { setResumeData({ ...resumeData, linkedin: e.target.value }) }} />
+                        <TextField id="standard-basic" label="Github Profile" value={resumeData.github} variant="standard" onChange={(e) => { setResumeData({ ...resumeData, github: e.target.value }) }} />
                     </div>
                 </>
             )
@@ -149,9 +166,9 @@ function InputForm() {
                 <>
                     <h3>Educational Details</h3>
                     <div className="p-3 row">
-                        <TextField id="standard-basic" label="Bachelor's Degree" variant="standard" onChange={(e) => { setResumeData({...resumeData, degree:e.target.value})}}/>
-                        <TextField id="standard-basic" label="University/College Name" variant="standard" onChange={(e) => { setResumeData({...resumeData, college:e.target.value})}} />
-                        <TextField id="standard-basic" label="Year of Graduation" variant="standard" onChange={(e) => { setResumeData({...resumeData, graduationYear:e.target.value})}} />
+                        <TextField id="standard-basic" label="Bachelor's Degree" variant="standard" value={resumeData.degree} onChange={(e) => { setResumeData({ ...resumeData, degree: e.target.value }) }} />
+                        <TextField id="standard-basic" label="University/College Name" variant="standard" value={resumeData.college} onChange={(e) => { setResumeData({ ...resumeData, college: e.target.value }) }} />
+                        <TextField id="standard-basic" label="Year of Graduation" variant="standard" value={resumeData.graduationYear} onChange={(e) => { setResumeData({ ...resumeData, graduationYear: e.target.value }) }} />
 
                     </div>
                 </>
@@ -223,13 +240,19 @@ function InputForm() {
                             Back
                         </Button>
                         <Box sx={{ flex: '1 1 auto' }} />
+                        {
+                            activeStep === steps.length - 1 ?
+                                <Button ref={nextButtonRef} onClick={generate}>
+                                    GENERATE AI SKILLS & SUMMARY
+                                </Button>
+                                :
+                                <Button onClick={handleNext} ref={nextButtonRef}>
+                                    NEXT
+                                </Button>
 
-                        <Button onClick={handleNext} ref={nextButtonRef}>
-                            {activeStep === steps.length - 1 ?
-                                <Button>GENERATE AI SKILLS</Button>
-                                : 'Next'}
-                        </Button>
-                        <Link to={"/vres"} className='btn btn-dark ' style={{ backgroundColor: ' rgba(4, 28, 73, 0.93)' }}>Finish</Link>
+                        }
+
+
                     </Box>
                 </React.Fragment>
             )}
