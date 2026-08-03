@@ -10,11 +10,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
 import jobRoles from "../assets/it_job_roles.json";
 import jobskills from "../assets/jobskills.json"
 import summery from "../assets/professional_summary.json"
-
+import { addResumeApi } from '../services/allApiServices';
+import { useNavigate } from 'react-router-dom';
 
 
 const steps = ['Basic Informations', 'Contact Details', 'Educational Details', 'Preview and Submit'];
@@ -36,7 +36,10 @@ function InputForm({ setRes }) {
         skills: [],
         summary: ""
     });
-    // console.log(resumeData)
+
+    const nav=useNavigate()
+    console.log(resumeData)
+
     const generate = () => {
         setResumeData({
             ...resumeData,
@@ -46,10 +49,7 @@ function InputForm({ setRes }) {
 
         handleNext();
     };
-    const [age, setAge] = React.useState('');
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    
 
     // const isStepOptional = React.useCallback((step) => {
     //     return step === 1;
@@ -122,6 +122,28 @@ function InputForm({ setRes }) {
         setRes(resumeData)
 
     }, [resumeData])
+
+const handleSubmit=async()=>{
+const {fullname, location, jobTitle, email, phone, linkedin, github, degree, college, graduationYear, skills, summary}=resumeData
+if(fullname && location && jobTitle && email && phone && linkedin && github && degree && college &&
+graduationYear && summary && skills.length > 0){
+
+//api call
+const response=await addResumeApi(resumeData)
+console.log(response)
+if(response.status === 201){
+alert("Resume Created !! ")
+nav('/vres')
+}
+else{
+alert("Resume Creation Failed !! ")
+}
+}
+
+else{
+alert("Please Fill in the form Completely !! ")
+}
+}
 
     const renderStepContent = (stepCount) => {
         switch (stepCount) {
@@ -219,8 +241,8 @@ function InputForm({ setRes }) {
                     </Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                         <Box sx={{ flex: '1 1 auto' }} />
-                        <Button onClick={handleReset} ref={resetButtonRef}>
-                            Reset
+                        <Button onClick={handleSubmit} ref={resetButtonRef}>
+                            FINISH
                         </Button>
                     </Box>
                 </React.Fragment>

@@ -34,7 +34,7 @@ function Preview({resume}) {
      }
     </div>
     <Divider/>
-    <h4 className='py-3'>Education : {resume?.education}</h4>
+    <h4 className='py-3'>Education :</h4>
     <p>Bachelor's Degree in: {resume?.degree}<span></span></p>
     <p>University/College name: {resume?.college}<span></span></p>
     <p>Year of Gradution: {resume?.graduationYear}<span></span>

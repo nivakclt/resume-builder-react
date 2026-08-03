@@ -1,36 +1,16 @@
-# 🚀 AI Resume Builder
-
-A modern AI-powered Resume Builder built with **React**, **Material UI**, and **Vite** that enables users to create professional resumes through a clean multi-step interface. Users can enter their personal information, education, experience, projects, skills, and generate a polished resume ready for download.
-
----
-
-## 🌟 Features
-
-- 📝 Multi-step resume creation
-- 👤 Personal information form
-- 📞 Contact details section
-- 🎓 Education details
-- 💼 Work experience
-- 🚀 Projects & Achievements
-- 🛠️ Technical & Soft Skills
-- 📄 Resume Preview
-- 📥 Download resume
-- 📱 Fully responsive design
-- 🎨 Modern Material UI components
-- ⚡ Fast performance with Vite
-- 
-
-## 🎯 Future Improvements
-
-- AI-generated resume summaries
-- Multiple resume templates
-- Dark mode
-- PDF export
-- User authentication
-- Cloud resume storage
-- Resume sharing via link
-- ATS score checker
-- AI grammar suggestions
-- AI skill recommendations
-
-
+2. Clear unwanted codes and files
+3. install necessory node packages
+-install material ui
+-add bootstrap cdn link
+-add google fonts with cdn
+-install react-icons
+-index.css update
+-update website icon & title
+4. Create a folder for pages. Create components for main pages
+5. Create a folder for components. Create components such as header, footer, etc
+6. provide path to page components[react-router-dom]
+7. Design Components
+8. To Make API calls;
+-create api folder in src and,
+-create axiosInstance.js, define axios instance and interceptors in js file
+-create apiService.js file where we define common api steps
