@@ -1,16 +1,21 @@
-2. Clear unwanted codes and files
-3. install necessory node packages
--install material ui
--add bootstrap cdn link
--add google fonts with cdn
--install react-icons
--index.css update
--update website icon & title
-4. Create a folder for pages. Create components for main pages
-5. Create a folder for components. Create components such as header, footer, etc
-6. provide path to page components[react-router-dom]
-7. Design Components
-8. To Make API calls;
--create api folder in src and,
--create axiosInstance.js, define axios instance and interceptors in js file
--create apiService.js file where we define common api steps
+## project steps
+
+1.create project using vite
+2.clear unwanted codes and file
+3.install necessory node packages
+    -install material ui
+    -add bootstrap cdn link
+    -add google fonts with cdn
+    -install react-icon
+    -index.css update
+    -update website icon and title
+4.create a folder for pages.create componenets  for main pages.
+5.create a folder for componenet.create components such as header,footer,etc.
+6.provide path to page components[react.router-dom]
+7.Design components
+8.To make API calls:
+    -create api folder in src and,
+        -create aciosInstance.js file,define axios Instance and inteceptors in js file.
+        -create apiServices.js file where we define common api steps.
+        -create services folder in src and,
+        -create allApiServices.js file,and define individual functions for individual api calls
