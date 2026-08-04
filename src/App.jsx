@@ -21,8 +21,8 @@ function App() {
         <Route path='steps' element={<ResumeSteps />} />
         <Route path='form' element={<UserForm />} />
         <Route path='history' element={<Downloads />} />
-        <Route path='*' element={<Pnf />} />
-        <Route path='vres' element={<ViewResume/>}/>
+        <Route path='/*' element={<Pnf />} />
+        <Route path='vres/:rid' element={<ViewResume/>}/>
       </Routes>
       <Footer/>
     </>

@@ -15,6 +15,7 @@ import jobskills from "../assets/jobskills.json"
 import summery from "../assets/professional_summary.json"
 import { addResumeApi } from '../services/allApiServices';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 const steps = ['Basic Informations', 'Contact Details', 'Educational Details', 'Preview and Submit'];
@@ -133,7 +134,7 @@ const response=await addResumeApi(resumeData)
 console.log(response)
 if(response.status === 201){
 alert("Resume Created !! ")
-nav('/vres')
+Navigate(`/vres/${response.data.id}`);
 }
 else{
 alert("Resume Creation Failed !! ")

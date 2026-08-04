@@ -10,7 +10,7 @@
     -index.css update
     -update website icon and title
 4.create a folder for pages.create componenets  for main pages.
-5.create a folder for componenet.create components such as header,footer,etc.
+5.create a folder for components.create components such as header,footer,etc.
 6.provide path to page components[react.router-dom]
 7.Design components
 8.To make API calls:
