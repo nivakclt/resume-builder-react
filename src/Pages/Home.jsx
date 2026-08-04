@@ -19,7 +19,7 @@ function Home() {
           <h3>Build Your Resume</h3>
           <h5>Designed To Get Hired. Your Skills, Your Story, Your Next Job - All In One.
           </h5>
-          <Link to={"/Steps"} style={{ backgroundColor: ' rgba(4, 28, 73, 0.93)', color: 'white' }} className='btn btn-primary-outline'>Make your Resume Now with AI !</Link>
+          <Link to={"/steps"} style={{ backgroundColor: ' rgba(4, 28, 73, 0.93)', color: 'white' }} className='btn btn-primary-outline'>Make your Resume Now with AI !</Link>
         </div>
       </div>
 

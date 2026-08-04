@@ -9,38 +9,42 @@ import Preview from '../Components/Preview'
 import Edit from '../Components/Edit'
 import { useParams } from 'react-router-dom'
 import { getResumeApi } from '../services/allApiServices'
+import html2canvas from "html2canvas";
 
 
 function ViewResume() {
 
-  const {rid}=useParams()
+const {rid}=useParams()
 console.log(rid)
+const [resumeData, setResumeData] = useState({});
 
 useEffect(() => {
     getResumeData();
 }, [rid]);
 
-const getResumeData=async()=>{
-const response=await getResumeApi(rid)
-console.log(response)
-if(response.status===200){
-  setResumeData(response.data)
-}
+const getResumeData = async () => {
+    const response = await getResumeApi(rid);
 
-const handleDownload=async ()=>{
-  // resume pic,date and time,id
-   const today= new Date();
-   const datetime=`${today.toLocaleDateString()},${today.toLocaleDateString()}`
-   const resumeId=rid
-   const preview=document.getElementById("preview")
-   console.log(datetime,resumeId,preview)
-  //  html to img
-  const canvas=await htmlcanvas(preview)
-  console.log(canvas)
-  const imgUrl=canvas.toDataUrl()
-  console.log(imgUrl)
-}
-}
+    if (response.status === 200) {
+        setResumeData(response.data);
+    }
+};
+
+const handleDownload = async () => {
+    const today = new Date();
+    const datetime = `${today.toLocaleDateString()}, ${today.toLocaleTimeString()}`;
+
+    const resumeId = rid;
+    const preview = document.getElementById("preview");
+
+    console.log(datetime, resumeId, preview);
+
+    const canvas = await html2canvas(preview);
+    console.log(canvas);
+
+    const imgUrl = canvas.toDataURL();
+    console.log(imgUrl);
+};
 
 
   return (
@@ -51,7 +55,7 @@ const handleDownload=async ()=>{
         <div className='col-md-8'>
           <div className="d-flex justify-content-center">
             {/* Downlaod */}
-            <button className='btn text-primary'><FaFileDownload style={{fontSize:"35px"}}/></button>
+            <button className='btn text-primary' onClick={handleDownload}><FaFileDownload style={{fontSize:"35px"}}/></button>
             {/* Edit  */}
             <Edit/>
             {/*   preview */}

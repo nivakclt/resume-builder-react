@@ -17,12 +17,12 @@ function App() {
     <>
       <Header/>
       <Routes>
-        <Route path='' element={<Home />}/>
+        <Route path='/' element={<Home />}/>
         <Route path='steps' element={<ResumeSteps />} />
         <Route path='form' element={<UserForm />} />
         <Route path='history' element={<Downloads />} />
-        <Route path='/*' element={<Pnf />} />
-        <Route path='vres/:rid' element={<ViewResume/>}/>
+        <Route path='*' element={<Pnf />} />
+        <Route path='/vres/:rid' element={<ViewResume/>}/>
       </Routes>
       <Footer/>
     </>

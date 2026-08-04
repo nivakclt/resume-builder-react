@@ -15,10 +15,9 @@ import jobskills from "../assets/jobskills.json"
 import summery from "../assets/professional_summary.json"
 import { addResumeApi } from '../services/allApiServices';
 import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
 
 
-const steps = ['Basic Informations', 'Contact Details', 'Educational Details', 'Preview and Submit'];
+const steps = ['Basic Information', 'Contact Details', 'Educational Details', 'Preview and Submit'];
 
 function InputForm({ setRes }) {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -38,7 +37,7 @@ function InputForm({ setRes }) {
         summary: ""
     });
 
-    const nav=useNavigate()
+    const nav = useNavigate()
     console.log(resumeData)
 
     const generate = () => {
@@ -50,7 +49,7 @@ function InputForm({ setRes }) {
 
         handleNext();
     };
-    
+
 
     // const isStepOptional = React.useCallback((step) => {
     //     return step === 1;
@@ -124,27 +123,33 @@ function InputForm({ setRes }) {
 
     }, [resumeData])
 
-const handleSubmit=async()=>{
-const {fullname, location, jobTitle, email, phone, linkedin, github, degree, college, graduationYear, skills, summary}=resumeData
-if(fullname && location && jobTitle && email && phone && linkedin && github && degree && college &&
-graduationYear && summary && skills.length > 0){
+    const handleSubmit = async () => {
+        const { fullname, location, jobTitle, email, phone, linkedin, github, degree, college, graduationYear, skills, summary } = resumeData
+        if (fullname && location && jobTitle && email && phone && linkedin && github && degree && college &&
+            graduationYear && summary && skills.length > 0) {
 
-//api call
-const response=await addResumeApi(resumeData)
-console.log(response)
-if(response.status === 201){
-alert("Resume Created !! ")
-Navigate(`/vres/${response.data.id}`);
-}
-else{
-alert("Resume Creation Failed !! ")
-}
-}
+            //api call
+ try {
+    const response = await addResumeApi(resumeData);
+    console.log(response);
 
-else{
-alert("Please Fill in the form Completely !! ")
+    if (response.status === 201) {
+        alert("Resume Created !!");
+        nav(`/vres/${response.data.id}`);
+    }
 }
+catch (err) {
+    console.log(err.response);
+    console.log(err.message);
+    console.log(err.config);
+    alert("API Error");
 }
+            }
+
+        else {
+            alert("Please Fill in the form Completely !! ")
+        }
+    }
 
     const renderStepContent = (stepCount) => {
         switch (stepCount) {

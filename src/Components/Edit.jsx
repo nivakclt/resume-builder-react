@@ -9,7 +9,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
-import { MdHeight } from 'react-icons/md';
 
 const style = {
     position: 'absolute',
@@ -26,6 +25,8 @@ const style = {
 };
 
 function Edit() {
+    const [jobTitle, setJobTitle] = React.useState("");
+    
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -54,25 +55,13 @@ function Edit() {
                                 <Select
                                     labelId="demo-simple-select-standard-label"
                                     id="demo-simple-select-standard"
-                                    value={""}
-                                    onChange={""}
+
+                                        value={jobTitle}
+                                        onChange={(e) => setJobTitle(e.target.value)}  
                                 >
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={10}>Software Developer</MenuItem>
-                                    <MenuItem value={20}>UI Developer</MenuItem>
-                                    <MenuItem value={30}>QA Engineer</MenuItem>
-                                    <MenuItem value={10}>Devops Engineer</MenuItem>
-                                    <MenuItem value={10}>Generative AL Engineer</MenuItem>
-                                    <MenuItem value={10}>Cybersecurity Analyst</MenuItem>
-                                    <MenuItem value={10}>Penetration Tester</MenuItem>
-                                    <MenuItem value={10}>Prompt Engineer</MenuItem>
-                                    <MenuItem value={10}>Network Engineer</MenuItem>
-                                    <MenuItem value={10}>Security Consultant</MenuItem>
-                                    <MenuItem value={10}>Node.js Developer</MenuItem>
-                                    <MenuItem value={10}>Express.js Developer</MenuItem>
-                                    <MenuItem value={10}>API Developer</MenuItem>
                                 </Select>
                             </FormControl>
 
@@ -103,7 +92,7 @@ function Edit() {
                         </div>
                         {/* Summary */}
                         <div className='row p-3'>
-                        <TextField id='standard-basic-degree' label='Summury' multiline variant="standard" width={'100'}/>  
+                        <TextField id='standard-basic-degree' label='Summary' multiline variant="standard" sx={{ width: "100%" }}/>  
                         </div>
                         </div>
                         {/* button */}

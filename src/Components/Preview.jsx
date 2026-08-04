@@ -16,7 +16,7 @@ function Preview({resume}) {
     <p>Github Profile : <a href={resume?.github}>{resume?.github}</a></p>
     <p>Location : {resume?.location}<span></span></p>
     <Divider/>
-    <h4 className='py-3'>Proffessional Summury</h4>
+    <h4 className='py-3'>Professional Summary</h4>
     <p style={{textAlign:'justify'}}>{resume?.summary}
     </p>
     <Divider/>
@@ -37,7 +37,7 @@ function Preview({resume}) {
     <h4 className='py-3'>Education :</h4>
     <p>Bachelor's Degree in: {resume?.degree}<span></span></p>
     <p>University/College name: {resume?.college}<span></span></p>
-    <p>Year of Gradution: {resume?.graduationYear}<span></span>
+    <p>Year of Graduation: {resume?.graduationYear}<span></span>
     </p>
   </div>
     </>
