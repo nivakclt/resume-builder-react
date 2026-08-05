@@ -1,17 +1,18 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { FaEdit } from 'react-icons/fa'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Stepper from '@mui/material';
+import Step from '@mui/material';
+import StepLabel from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
-import jobRoles from "../assets/job_roles.json";
-
-
+import jobRoles from '../assets/it_job_roles.json'
 
 const style = {
     position: 'absolute',
@@ -27,17 +28,39 @@ const style = {
     p: 4,
 };
 
-function Edit({resume}) {
-    const [jobTitle, setJobTitle] = React.useState("");
-    
-    console.log("From resume",resume)
+
+function Edit({ resume = {} }) {
+
+    const handleUpdate = () => {
+        console.log("Update clicked");
+        console.log("Update Form");
+    }
+
     const [open, setOpen] = React.useState(false);
+    const [updateForm, setUpdateForm] = React.useState({
+        fullname: resume.fullname,
+        location: resume.location,
+        jobTitle: resume.jobTitle,
+        email: resume.email,
+        phone: resume.phone,
+        linkedin: resume.linkedin,
+        github: resume.github,
+        degree: resume.degree,
+        college: resume.college,
+        graduationYear: resume.graduationYear,
+        skills: resume.skills,
+        summary: resume.summary
+    });
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+
     return (
         <>
-            <button className='btn text-warning' onClick={handleOpen}><FaEdit style={{ fontSize: "35px" }} /></button>
+            <div>
+                <button className='btn text-warning' onClick={handleOpen}><FaEdit style={{ fontSize: "35px" }} /></button>
+            </div>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -52,22 +75,21 @@ function Edit({resume}) {
                         {/* personal details */}
                         <h3>Personal Details</h3>
                         <div className="p-3 row">
-                            <TextField id="standard-basic" onChange={} value={resume?.fullname} label="Full Name" variant="standard" />
-                            <TextField id="standard-basic" value={resume?.location} label="Location" variant="standard" />
+                            <TextField id="standard-basic" onChange={(e) => setUpdateForm({ ...updateForm, fullname: e.target.value })} defaultValue={resume?.fullname} label="Full Name" variant="standard" />
+                            <TextField id="standard-basic" onChange={(e) => setUpdateForm({ ...updateForm, location: e.target.value })} defaultValue={resume?.location} label="Location" variant="standard" />
                             <FormControl variant="standard" sx={{ my: 1, minWidth: 120 }}>
                                 <InputLabel id="demo-simple-select-standard-label">Choose Job Title</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-standard-label"
                                     id="demo-simple-select-standard"
-
-                                        value={jobTitle}
-                                        onChange={(e)=>setJobTitle(e.target.value)}
+                                    value={resume.jobTitle}
+                                    onChange={(e) => { }}
                                 >
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
                                     {
-                                        jobRoles.jobRoles.map((item)=>(
+                                        jobRoles.jobRoles.map((item) => (
                                             <MenuItem key={item} value={item}>
                                                 {item}
                                             </MenuItem>
@@ -81,18 +103,17 @@ function Edit({resume}) {
                         {/* contact details */}
                         <h3>Contact Details</h3>
                         <div className="p-3 row">
-                            <TextField id="standard-basic" label="Email" value={resume?.email} variant="standard" />
-                            <TextField id="standard-basic" label="Contact Number:" value={resume?.phone} variant="standard" />
-                            <TextField id="standard-basic" label="LinkedIn Link" value={resume?.linkedin} variant="standard" />
-                            <TextField id="standard-basic" label="Github Profile" value={resume?.github}variant="standard" />
+                            <TextField id='standard-basic' defaultValue={resume?.email} onChange={(e) => setUpdateForm({ ...updateForm, email: e.target.value })} label="Email" variant='standard' />
+                            <TextField id='standard-basic' defaultValue={resume?.phone} onChange={(e) => setUpdateForm({ ...updateForm, phone: e.target.value })} label='Contact Number' variant='standard' />
+                            <TextField id='standard-basic' defaultValue={resume?.linkedin} onChange={(e) => setUpdateForm({ ...updateForm, linkedin: e.target.value })} label='LinkedIn' variant='standard' />
+                            <TextField id='standard-basic' defaultValue={resume?.github} onChange={(e) => setUpdateForm({ ...updateForm, github: e.target.value })} label='GitHub' variant='standard' />
                         </div>
                         {/* Educational details` */}
                         <h3>Educational Details</h3>
                         <div className="p-3 row">
-                            <TextField id="standard-basic" label="Bachelor's Degree"  value={resume?.degree}variant="standard" />
-                            <TextField id="standard-basic" label="University/College Name" value={resume?.college} variant="standard" />
-                            <TextField id="standard-basic" label="Year of Graduation" value={resume?.graduationYear} variant="standard" />
-
+                            <TextField id='standard-basic' defaultValue={resume?.degree} onChange={(e) => setUpdateForm({ ...updateForm, degree: e.target.value })} label="Bachelor's Degree" variant='standard' />
+                            <TextField id='standard-basic' defaultValue={resume?.college} onChange={(e) => setUpdateForm({ ...updateForm, college: e.target.value })} label="University/College Name" variant='standard' />
+                            <TextField id='standard-basic' defaultValue={resume?.graduationYear} onChange={(e) => setUpdateForm({ ...updateForm, graduationYear: e.target.value })} label="Year of Graduation" variant='standard' />
                         </div>
                         {/* Technical skills */}
                         <h4 className='py-3'>Technical Skills</h4>
@@ -103,12 +124,12 @@ function Edit({resume}) {
                         </div>
                         {/* Summary */}
                         <div className='row p-3'>
-                        <TextField id='standard-basic-degree' label='Summary' multiline variant="standard" sx={{ width: "100%" }}/>  
+                            <TextField id="standard-basic-degree" defaultValue={resume?.summary} onChange={(e) => setUpdateForm({ ...updateForm, summary: e.target.value })} label="summery" multiline width={'100%'} variant='standard' />
                         </div>
-                        </div>
-                        {/* button */}
+                    </div>
+                    {/* button */}
                     <div className='d-grid mb-3'>
-                        <button className='btn btn-dark'style={{ backgroundColor: ' rgba(4, 28, 73, 0.93)'}}>Update</button>
+                        <button className='btn btn-primary' onClick={handleUpdate}>UPDATE</button>
                     </div>
                 </Box>
             </Modal>

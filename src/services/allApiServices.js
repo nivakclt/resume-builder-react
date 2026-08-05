@@ -1,16 +1,19 @@
-import apiService from "../api/apiService";
+import apiServices from "../api/apiService";
 
 // add new resume
-export const addResumeApi=async(data)=>{
-return await apiService("POST","/allResumes",data)
+ export const addResumeApi = async (data) => {
+    return await apiServices("POST","/allResumes",data);
 }
 
-// get resume object with id
-export const getResumeApi=async(id)=>{
-    return await apiService("GET", `/allResumes/${id}`, {});
+
+// get resume object by id
+export const getResumeApi = async (id) => {
+    return await apiServices("GET",`/allResumes/${id}`);
 }
 
 // add download details
-export const addDownloadHistoryApi=async(data)=>{
-    return await apiService("POST",'/Downloads',data)
+
+export const addDownloadHistoryApi = async (data) => {
+    return await apiServices("POST","/Download",data);
 }
+

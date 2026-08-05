@@ -13,11 +13,11 @@ import html2canvas from "html2canvas";
 import jsPDF from 'jspdf';
 
 
-function ViewResume() {
+function ViewResume({resume}) {
 
 const {rid}=useParams()
 console.log(rid)
-const [resumeData, setResumeData] = useState({});
+const [resumeData, setResumeData] = useState();
 
 useEffect(() => {
     getResumeData();
@@ -47,8 +47,8 @@ const handleDownload = async () => {
     const canvas = await html2canvas(preview);
     // console.log(canvas);
 
-    // const imgUrl = canvas.toDataURL();
-    // console.log(imgUrl);
+    const imgUrl = canvas.toDataURL("image/png");
+    console.log(imgUrl);
 
     // blob means A Blob (Binary Large Object) is an object that stores raw binary data such as images, PDFs, videos, audio, or other files.
     canvas.toBlob((blob)=>{
@@ -61,7 +61,7 @@ const handleDownload = async () => {
     const downloadhistory={resumeId,datetime,picture:resumeImage}
     const response=await addDownloadHistoryApi(downloadhistory)
     console.log(response)
-    if(response.status==200){
+    if(response.status==201){
       const pdf=new jsPDF();
       const imgWidth=pdf.internal.pageSize.getWidth()
       const imgHeight=pdf.internal.pageSize.getHeight()
@@ -83,7 +83,7 @@ const handleDownload = async () => {
             {/* Downlaod */}
             <button className='btn text-primary' onClick={handleDownload}><FaFileDownload style={{fontSize:"35px"}}/></button>
             {/* Edit  */}
-            <Edit resume={resumeData}/>
+            <Edit resume={resumeData} />
             {/*   preview */}
             <Link className='btn text-secondary' to={"/history"}><FaHistory style={{fontSize:"35px"}}/></Link>
             {/*  backform */}
