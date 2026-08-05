@@ -7,7 +7,7 @@ function Preview({resume}) {
   console.log(resume)
   return (
     <>
-    <div className='w-100 py-4 px-4 shadow-lg rounded bg-white'>
+    <div  id="preview" className='w-100 py-4 px-4 shadow-lg rounded bg-white'>
     <h4>{resume?.fullname}</h4>
     <p>Phone : {resume?.phone}<span></span></p>
     <p>Email :{resume?.email} <span></span></p>

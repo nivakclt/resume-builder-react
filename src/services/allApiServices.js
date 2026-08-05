@@ -11,6 +11,6 @@ export const getResumeApi=async(id)=>{
 }
 
 // add download details
-export const addDownloadApi=async(data)=>{
-    return await apiService("POST",'/downloads',data)
+export const addDownloadHistoryApi=async(data)=>{
+    return await apiService("POST",'/Downloads',data)
 }

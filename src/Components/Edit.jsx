@@ -9,6 +9,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { TextField } from '@mui/material';
+import jobRoles from "../assets/job_roles.json";
+
+
 
 const style = {
     position: 'absolute',
@@ -24,9 +27,10 @@ const style = {
     p: 4,
 };
 
-function Edit() {
+function Edit({resume}) {
     const [jobTitle, setJobTitle] = React.useState("");
     
+    console.log("From resume",resume)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -48,8 +52,8 @@ function Edit() {
                         {/* personal details */}
                         <h3>Personal Details</h3>
                         <div className="p-3 row">
-                            <TextField id="standard-basic" label="Full Name" variant="standard" />
-                            <TextField id="standard-basic" label="Location" variant="standard" />
+                            <TextField id="standard-basic" onChange={} value={resume?.fullname} label="Full Name" variant="standard" />
+                            <TextField id="standard-basic" value={resume?.location} label="Location" variant="standard" />
                             <FormControl variant="standard" sx={{ my: 1, minWidth: 120 }}>
                                 <InputLabel id="demo-simple-select-standard-label">Choose Job Title</InputLabel>
                                 <Select
@@ -57,11 +61,18 @@ function Edit() {
                                     id="demo-simple-select-standard"
 
                                         value={jobTitle}
-                                        onChange={(e) => setJobTitle(e.target.value)}  
+                                        onChange={(e)=>setJobTitle(e.target.value)}
                                 >
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
+                                    {
+                                        jobRoles.jobRoles.map((item)=>(
+                                            <MenuItem key={item} value={item}>
+                                                {item}
+                                            </MenuItem>
+                                        ))
+                                    }
                                 </Select>
                             </FormControl>
 
@@ -70,17 +81,17 @@ function Edit() {
                         {/* contact details */}
                         <h3>Contact Details</h3>
                         <div className="p-3 row">
-                            <TextField id="standard-basic" label="Email" variant="standard" />
-                            <TextField id="standard-basic" label="Contact Number:" variant="standard" />
-                            <TextField id="standard-basic" label="LinkedIn Link" variant="standard" />
-                            <TextField id="standard-basic" label="Github Profile" variant="standard" />
+                            <TextField id="standard-basic" label="Email" value={resume?.email} variant="standard" />
+                            <TextField id="standard-basic" label="Contact Number:" value={resume?.phone} variant="standard" />
+                            <TextField id="standard-basic" label="LinkedIn Link" value={resume?.linkedin} variant="standard" />
+                            <TextField id="standard-basic" label="Github Profile" value={resume?.github}variant="standard" />
                         </div>
                         {/* Educational details` */}
                         <h3>Educational Details</h3>
                         <div className="p-3 row">
-                            <TextField id="standard-basic" label="Bachelor's Degree" variant="standard" />
-                            <TextField id="standard-basic" label="University/College Name" variant="standard" />
-                            <TextField id="standard-basic" label="Year of Graduation" variant="standard" />
+                            <TextField id="standard-basic" label="Bachelor's Degree"  value={resume?.degree}variant="standard" />
+                            <TextField id="standard-basic" label="University/College Name" value={resume?.college} variant="standard" />
+                            <TextField id="standard-basic" label="Year of Graduation" value={resume?.graduationYear} variant="standard" />
 
                         </div>
                         {/* Technical skills */}
