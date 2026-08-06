@@ -8,30 +8,30 @@ import { FaBackward } from 'react-icons/fa'
 import Preview from '../Components/Preview'
 import Edit from '../Components/Edit'
 import { useParams } from 'react-router-dom'
-import { getResumeApi,addDownloadHistoryApi } from '../services/allApiServices'
+import { getResumeApi, addDownloadHistoryApi } from '../services/allApiServices'
 import html2canvas from "html2canvas";
 import jsPDF from 'jspdf';
 
 
-function ViewResume({resume}) {
+function ViewResume({ resume }) {
+  const preview = document.getElementById("preview");
+  const { rid } = useParams()
+  console.log(rid)
+  const [resumeData, setResumeData] = useState();
 
-const {rid}=useParams()
-console.log(rid)
-const [resumeData, setResumeData] = useState();
-
-useEffect(() => {
+  useEffect(() => {
     getResumeData();
-}, [rid]);
+  }, [rid]);
 
-const getResumeData = async () => {
+  const getResumeData = async () => {
     const response = await getResumeApi(rid);
 
     if (response.status === 200) {
-        setResumeData(response.data);
+      setResumeData(response.data);
     }
-};
+  };
 
-const handleDownload = async () => {
+  const handleDownload = async () => {
     const today = new Date();
     const datetime = `${today.toLocaleDateString()}, ${today.toLocaleTimeString()}`;
 
@@ -41,9 +41,9 @@ const handleDownload = async () => {
 
     console.log(datetime, resumeId, preview);
 
-     // html->image
+    // html->image
     // html->shorturl
-    
+
     const canvas = await html2canvas(preview);
     // console.log(canvas);
 
@@ -51,26 +51,26 @@ const handleDownload = async () => {
     console.log(imgUrl);
 
     // blob means A Blob (Binary Large Object) is an object that stores raw binary data such as images, PDFs, videos, audio, or other files.
-    canvas.toBlob((blob)=>{
-      const shortUrl = URL.createObjectURL(blob)
-      generatePdf(shortUrl)
-    })
+    canvas.toBlob((blob) => {
+      const shortUrl = URL.createObjectURL(blob);
+      generatePdf(shortUrl);
+    });
 
     // api call
-    const generatePdf=async(resumeImage)=>{
-    const downloadhistory={resumeId,datetime,picture:resumeImage}
-    const response=await addDownloadHistoryApi(downloadhistory)
-    console.log(response)
-    if(response.status==201){
-      const pdf=new jsPDF();
-      const imgWidth=pdf.internal.pageSize.getWidth()
-      const imgHeight=pdf.internal.pageSize.getHeight()
-      pdf.addImage(resumeImage,"PNG",0,0,imgWidth,imgHeight)
-      pdf.save(`${resumeData.fullname}.pdf`)
-    }
+    const generatePdf = async (resumeImage) => {
+      const downloadhistory = { resumeId, datetime, picture: resumeImage }
+      const response = await addDownloadHistoryApi(downloadhistory)
+      console.log(response)
+      if (response.status == 201) {
+        const pdf = new jsPDF();
+        const imgWidth = pdf.internal.pageSize.getWidth()
+        const imgHeight = pdf.internal.pageSize.getHeight()
+        pdf.addImage(resumeImage, "PNG", 0, 0, imgWidth, imgHeight)
+        pdf.save(`${resumeData.fullname}.pdf`)
+      }
     }
     // html->pdf[using jspf]
-    };
+  };
 
 
   return (
@@ -81,15 +81,18 @@ const handleDownload = async () => {
         <div className='col-md-8'>
           <div className="d-flex justify-content-center">
             {/* Downlaod */}
-            <button className='btn text-primary' onClick={handleDownload}><FaFileDownload style={{fontSize:"35px"}}/></button>
+            <button className='btn text-primary' onClick={handleDownload}><FaFileDownload style={{ fontSize: "35px" }} /></button>
             {/* Edit  */}
-            <Edit resume={resumeData} />
+            <Edit
+              resume={resumeData}
+              setResumeData={setResumeData}
+            />
             {/*   preview */}
-            <Link className='btn text-secondary' to={"/history"}><FaHistory style={{fontSize:"35px"}}/></Link>
+            <Link className='btn text-secondary' to={"/history"}><FaHistory style={{ fontSize: "35px" }} /></Link>
             {/*  backform */}
-            <Link className='btn  text-primary' to={'/form'}><FaBackward style={{fontSize:"35px"}}/></Link>
+            <Link className='btn  text-primary' to={'/form'}><FaBackward style={{ fontSize: "35px" }} /></Link>
           </div>
-          <Preview resume={resumeData}/>
+          <Preview resume={resumeData} />
         </div>
         <div className='col-md-2'></div>
       </div>
