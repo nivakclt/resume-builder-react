@@ -1,29 +1,32 @@
-import apiService from "../api/apiService";
+import apiService from "../api/apiService"
 
-// add new resume
- export const addResumeApi = async (data) => {
-   return await apiService("POST","/allResumes",data);
+
+//add new resume
+export const addResumeApi=async(data)=>{
+   return await apiService("POST","/allResumes",data)
 }
 
-
-// get resume object by id
-export const getResumeApi = async (id) => {
-    return await apiService("GET",`/allResumes/${id}`);
+//get resume object with id
+export const getResumeApi=async(id)=>{
+   return await apiService("GET",`/allResumes/${id}`,{})
 }
 
-// add download details
-
-export const addDownloadHistoryApi = async (data) => {
-    return await apiService("POST","/Downloads",data);
+//add download details
+export const addDownloadHistoryApi=async(data)=>{
+   return await apiService("POST",'/downloads',data)
 }
 
-// update
-export const updateResumeApi = async (id, data) => {
-    return await apiService("PUT", `/allResumes/${id}`, data);
+//update resume
+export const updateResumeApi=async(id,data)=>{
+   return await apiService("PUT",`/allResumes/${id}`,data)
 }
 
-// get all downlaod history
-export const getAllHistoryApi= async ()=>{
-    return await apiService("GET",'/Downloads/',{})
+//get all download history
+export const getAllHistoryApi=async()=>{
+   return await apiService("GET",'/downloads',{})
 }
 
+//delete download history by id
+export const deleteHistroyById=async(id)=>{
+   return await apiService("DELETE",`/downloads/${id}`,{})
+}

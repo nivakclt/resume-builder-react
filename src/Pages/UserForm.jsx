@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
-import Preview from '../Components/Preview'
-import InputForm from '../Components/InputForm'
+import React,{useState} from 'react'
+import InputForm from '../components/InputForm'
+import Preview from '../components/Preview'
 
 function UserForm() {
+
   const [resume,setResume]=useState({})
+
   return (
-    <div className='container-fluid w-100 py-4 px-4 shadow-lg rounded bg-white' style={{minHeight:'80vh'}}>
-      <div className='row'>
-        <div className='col-md-6'>
-          <InputForm setRes={setResume}/>
-          {/* state lifting */}
+    <div className='container-fluid' style={{minHeight:'80vh'}}>
+      <div className="row">
+        <div className="col-md-6 p-4">
+          <InputForm setRes={setResume}/>  {/*STate lifting*/}
         </div>
-         <div className='col-md-6'>
+        <div className="col-md-6">
           {
             resume.fullname && 
-          <Preview resume={resume}/>   
-          // prop sharing
+            <Preview resume={resume}/>
           }
+          
         </div>
       </div>
     </div>

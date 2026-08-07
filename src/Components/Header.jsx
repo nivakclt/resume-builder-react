@@ -7,14 +7,12 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 
-
-
 function Header() {
-  const aboutus = "Our Resume Builder helps users create professional, ATS-friendly resumes in minutes. With modern templates, simple customization, and instant downloads, we make it easy to build resumes that stand out and increase your chances of landing interviews."
+  const aboutus = "A Resume Builder App is an essential tool for job seekers looking to create polished and effective resumes. By combining ease of use with professional design options, these apps empower users to present their qualifications confidently and increase their chances of landing job interviews"
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" style={{ backgroundColor: ' rgba(4, 28, 73, 0.93)' }}>
+        <AppBar position="static" sx={{ backgroundColor: 'purple' }}>
           <Toolbar>
             <IconButton
               size="large"
@@ -23,7 +21,7 @@ function Header() {
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/resume-icon-svg-download-png-7959858.png?f=webp&w=128" width={"50px"} alt="" />
+              <img src="https://cdn-icons-png.flaticon.com/512/5404/5404040.png" height={'50px'} alt="" />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               rBuilder
