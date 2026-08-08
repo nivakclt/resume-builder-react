@@ -16,20 +16,10 @@ function Home() {
       <div className='container-fluid p-0'>
         {/* Hero */}
         <div style={heroStyle} className='d-flex justify-content-center align-items-center hero'>
-          <div className=' heroContent w-50 border border-2 border-light shadow text-center text-light p-3'>
-            <div style={{
-            minHeight: "90vh",
-            backgroundImage:
-              "url('https://images.ctfassets.net/ri4db8kokucw/5v7ambblvZeTO85IGYa22f/4e520b6b34b5ef8dc361437e40c811c9/MSFT-A-woman-revising-her-resume-with-Copilot-in-MS-Word1.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-
-            filter: "blur(5px)",
+          <div className=' heroContent w-50 border border-2 border-light shadow text-center text-light p-3' style={{
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+            background: "rgba(0, 0, 0, 0.15)"
           }}>
             <h3>Build Your Resume</h3>
             <h5>Your Skills,Your Story,Your Next Job All in One.</h5>
@@ -40,7 +30,7 @@ function Home() {
               boxShadow: '0 3px 10px rgba(80, 45, 20, 0.2)',
 
             }}>Make your resume Now!</Link>
-            </div>
+
           </div>
         </div>
 
