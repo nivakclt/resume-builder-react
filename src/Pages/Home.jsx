@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   const heroStyle = {
@@ -13,101 +13,165 @@ function Home() {
 
   return (
     <>
-      <div className='container-fluid p-0'>
-        {/* Hero */}
-        <div style={heroStyle} className='d-flex justify-content-center align-items-center hero'>
-          <div className=' heroContent w-50 border border-2 border-light shadow text-center text-light p-3' style={{
-            backdropFilter: "blur(6px)",
-            WebkitBackdropFilter: "blur(6px)",
-            background: "rgba(0, 0, 0, 0.15)"
-          }}>
-            <h3>Build Your Resume</h3>
-            <h5>Your Skills,Your Story,Your Next Job All in One.</h5>
-            <Link to={'/steps'} className='hero-btn' style={{
-              fontWeight: 'bold',
-              fontSize: '14px',
-              background: 'linear-gradient(90deg, #f3d6b3 0%, #c89b72 50%, #9b6b45 100%)',
-              boxShadow: '0 3px 10px rgba(80, 45, 20, 0.2)',
+      {/* Hero */}
+      <div
+        style={{
+          ...heroStyle,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {/* ONE Blur Container */}
+        <div
+          style={{
+            width: "60%",
+            padding: "30px",
+            textAlign: "center",
+            color:'white',
+            border: "2px solid rgba(255,255,255,0.8)",
+            borderRadius: "12px",
+            backdropFilter: "blur(4px)",
+            WebkitBackdropFilter: "blur(8px)",
+            background: "rgba(255,255,255,0.08)",
+          }}
+        >
+          <h3>Build Your Resume</h3>
 
-            }}>Make your resume Now!</Link>
+          <h5>
+            Your Skills, Your Story, Your Next Job All in One.
+          </h5>
 
+          <Link
+            to="/steps"
+            className="hero-btn"
+            style={{
+              display: "inline-block",
+              padding: "14px 25px",
+              borderRadius: "30px",
+              textDecoration: "none",
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "14px",
+              background:
+                "linear-gradient(90deg, #f3d6b3 0%, #c89b72 50%, #9b6b45 100%)",
+              boxShadow: "0 3px 10px rgba(80, 45, 20, 0.2)",
+            }}
+          >
+            Make your resume Now!
+          </Link>
+        </div>
+      </div>
+
+      {/* Tools */}
+      <div className="container">
+        <h4 className="text-center display-4 m-5">Tools</h4>
+
+        <div className="row">
+          <div className="col-sm-12 col-md-6">
+            <h5>Resume</h5>
+
+            <p style={{ textAlign: "justify" }}>
+              rBuilder is a user-friendly resume builder application designed
+              to help job seekers create professional and well-structured
+              resumes with ease. Users can enter their personal, educational,
+              professional, and skill details through a simple step-by-step
+              process. The application provides a live resume preview,
+              allowing users to review and update their information before
+              finalizing their resume.
+            </p>
+
+            <h5>Cover Letter</h5>
+
+            <p style={{ textAlign: "justify" }}>
+              Create a personalized and professional cover letter that
+              effectively highlights your skills, experience, qualifications,
+              and career goals. A well-written cover letter helps introduce
+              you to potential employers and explains why you are a suitable
+              candidate for a particular position.
+            </p>
+
+            <h5>Jobs</h5>
+
+            <p style={{ textAlign: "justify" }}>
+              Discover job opportunities that match your skills,
+              qualifications, interests, and career goals. Explore different
+              job openings and learn more about available positions,
+              companies, and career requirements.
+            </p>
+
+            <h5>Application</h5>
+
+            <p style={{ textAlign: "justify" }}>
+              Manage your job applications efficiently by keeping track of
+              the positions you have applied for, application status, company
+              details, and other important information. Keeping your
+              applications organized makes it easier to follow up on
+              opportunities and monitor your progress.
+            </p>
+          </div>
+
+          <div className="col-sm-12 col-md-6 p-3">
+            <img
+              src="https://resumegenius.com/wp-content/uploads/clean-resume-builder-template-yellow.png?w=650"
+              alt="resume"
+              width="100%"
+            />
           </div>
         </div>
+      </div>
 
+      {/* Banner */}
+      <div
+        style={{
+          backgroundImage:
+            "url('https://d1yg2ddo8j5qoh.cloudfront.net/media/599672/oca-ways-to-save-money-in-uni-or-tafe.webp')",
+          height: "70vh",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      ></div>
 
-        {/* Tools */}
-        <div className='container'>
-          <h4 className="text-center display-4 m-5">Tools</h4>
-          <div className='row'>
-            <div className="col-sm-12 col-md-6">
+      {/* Testimony */}
+      <div className="container">
+        <h5 className="text-center display-4 my-2">Testimony</h5>
 
-              <h5>Resume</h5>
-              <p style={{ textAlign: 'justify' }}>
-                rBuilder is a user-friendly resume builder application designed to
-                help job seekers create professional and well-structured resumes
-                with ease.
-              </p>
+        <div className="row">
+          <div className="col-sm-12 col-md-6">
+            <h4>Trusted By Professionals Worldwide</h4>
 
-              <h5>Cover Letter</h5>
-              <p style={{ textAlign: 'justify' }}>
-                Create a personalized and professional cover letter that effectively
-                highlights your skills, experience, qualifications, and career goals.
-              </p>
+            <p style={{ textAlign: "justify" }}>
+              Create polished, professional resumes with ease. Our resume
+              builder helps job seekers showcase their skills, experience,
+              and achievements in a clear and impactful format—so they can
+              stand out with confidence.
+            </p>
 
-              <h5>Jobs</h5>
-              <p style={{ textAlign: 'justify' }}>
-                Discover job opportunities that match your skills, qualifications,
-                interests, and career goals.
-              </p>
+            <p style={{ textAlign: "justify" }}>
+              Your next opportunity starts with a great resume. Choose a
+              professional template, add your details, and create a resume
+              designed to help you stand out from the crowd.
+            </p>
 
-              <h5>Application</h5>
-              <p style={{ textAlign: 'justify' }}>
-                Manage your job applications efficiently by keeping track of the
-                positions you have applied for, application status, company details,
-                and other important information.
-              </p>
-
-            </div>
-            <div className="col-sm-12 col-md-6 p-3">
-              <img src="https://resumegenius.com/wp-content/uploads/clean-resume-builder-template-yellow.png?w=650"
-                alt="resume" width={'100%'} />
-            </div>
+            <p style={{ textAlign: "justify" }}>
+              Create a professional resume effortlessly. Showcase your
+              strengths, highlight your experience, and take the next step
+              toward your dream career.
+            </p>
           </div>
-        </div>
 
-        {/* Banner */}
-        <div style={{
-          backgroundImage: "url('https://d1yg2ddo8j5qoh.cloudfront.net/media/599672/oca-ways-to-save-money-in-uni-or-tafe.webp')",
-          height: '70vh',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}>
-
-        </div>
-
-        {/* Testimony */}
-        <div className='container'>
-          <h5 className="text-center display-4 my-2">Testimony</h5>
-          <div className="row">
-            <div className="col-sm-12 col-md-6">
-              <h4>Trusted By Proffessionals World Wide</h4>
-              <p style={{ textAlign: 'justify' }}>
-                Create polished, professional resumes with ease. Our resume builder helps job seekers showcase their skills, experience, and achievements in a clear and impactful format—so they can stand out with confidence.              </p>
-              <p style={{ textAlign: 'justify' }}>
-                Your next opportunity starts with a great resume. Choose a professional template, add your details, and create a resume designed to help you stand out from the crowd.</p>
-              <p style={{ textAlign: 'justify' }}>
-                Create a professional resume effortlessly. Showcase your strengths, highlight your experience, and take the next step toward your dream career.</p>
-            </div>
-            <div className="col-sm-12 col-md-6">
-              <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1e8YmZ6G9yh82QY6nyK0UG/2a822e00e9b33ec066b94017719fa998/Stocksy_txp233b02ffaSu200_Medium_3441517__1_.webp?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000"
-                width={'100%'} alt="emp" />
-            </div>
+          <div className="col-sm-12 col-md-6">
+            <img
+              src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1e8YmZ6G9yh82QY6nyK0UG/2a822e00e9b33ec066b94017719fa998/Stocksy_txp233b02ffaSu200_Medium_3441517__1_.webp?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000"
+              width="100%"
+              alt="employee"
+            />
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
