@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:3000",
-    // baseURL:'https://rbuilder-mearnmay-26-be.onrender.com',
+    // baseURL: "http://localhost:3000",
+    baseURL:'https://resume-builder-react-fe.onrender.com',
     timeout: 5000
 })
 
