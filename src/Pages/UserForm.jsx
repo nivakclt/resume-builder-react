@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
-import InputForm from '../components/InputForm'
-import Preview from '../components/Preview'
+import InputForm from '../Components/InputForm'
+import Preview from '../Components/Preview'
 
 function UserForm() {
 
