@@ -25,15 +25,14 @@ function Home() {
         {/* ONE Blur Container */}
         <div
           style={{
-            width: "60%",
+            width: "50%",
             padding: "30px",
             textAlign: "center",
             color:'white',
-            border: "2px solid rgba(255,255,255,0.8)",
+            border: "2px solid rgba(255, 255, 255, 0.62)",
             borderRadius: "12px",
             backdropFilter: "blur(4px)",
-            WebkitBackdropFilter: "blur(8px)",
-            background: "rgba(255,255,255,0.08)",
+            WebkitBackdropFilter: "blur(8px)"
           }}
         >
           <h3>Build Your Resume</h3>
