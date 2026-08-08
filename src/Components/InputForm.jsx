@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 const steps = ['Basic Informations', 'Contact Details', 'Educational Details', 'Review & Submit'];
 
 
-function InputForm({setRes}) {
+function InputForm({ setRes }) {
     const [activeStep, setActiveStep] = React.useState(0);
     const [age, setAge] = React.useState('');
     const [resumeData, setResumeData] = useState({
@@ -38,7 +38,7 @@ function InputForm({setRes}) {
         summery: ""
     })
 
-    const nav=useNavigate()
+    const nav = useNavigate()
 
     console.log(resumeData)
 
@@ -79,39 +79,40 @@ function InputForm({setRes}) {
             nextButtonRef.current.focus();
             return;
         }
-        
+
 
     }, [activeStep]);
 
-    React.useEffect(()=>{
+    React.useEffect(() => {
         setRes(resumeData)
-    },[resumeData])
+    }, [resumeData])
 
-    const generate=()=>{
-        setResumeData({...resumeData,
-            skills:jobSkills[resumeData.jobtitle],
-            summery:summery[resumeData.jobtitle]
+    const generate = () => {
+        setResumeData({
+            ...resumeData,
+            skills: jobSkills[resumeData.jobtitle],
+            summery: summery[resumeData.jobtitle]
         })
-        
+
         handleNext()
     }
 
-    const handleSubmit=async()=>{
-        const {fullname,location,jobtitle,email,phone,linkedin,github,degree,college,year,skills,summery}=resumeData
-        if(fullname && location && jobtitle && email && phone && linkedin && github && degree && college &&
-            year && summery && skills){
-                //api call
-                const response=await addResumeApi(resumeData)
-                console.log(response)
-                if(response.status===201){
-                    alert("Resume Created!!")
-                    nav(`/view/${response?.data?.id}`)
-                }
-                else{
-                    alert("Resume Creation Failed!!")
-                }
+    const handleSubmit = async () => {
+        const { fullname, location, jobtitle, email, phone, linkedin, github, degree, college, year, skills, summery } = resumeData
+        if (fullname && location && jobtitle && email && phone && linkedin && github && degree && college &&
+            year && summery && skills) {
+            //api call
+            const response = await addResumeApi(resumeData)
+            console.log(response)
+            if (response.status === 201) {
+                alert("Resume Created!!")
+                nav(`/view/${response?.data?.id}`)
             }
-        else{
+            else {
+                alert("Resume Creation Failed!!")
+            }
+        }
+        else {
             alert("Please Fill in the form Completely!!")
         }
     }
@@ -120,7 +121,16 @@ function InputForm({setRes}) {
         switch (stepCount) {
             case 0: return (
                 <>
-                    <h3>Personal Details</h3>
+                    <h3
+                        style={{
+                            color: '#4a2818',
+                            fontWeight: '600',
+                            marginTop: '25px',
+                            marginBottom: '20px'
+                        }}
+                    >
+                        Personal Details
+                    </h3>
                     <div className='p-3 row'>
                         <TextField id="standard-basic" value={resumeData.fullname} onChange={(e) => { setResumeData({ ...resumeData, fullname: e.target.value }) }} label="Full Name" variant="standard" />
                         <TextField id="standard-basic" value={resumeData.location} onChange={(e) => { setResumeData({ ...resumeData, location: e.target.value }) }} label="Location" variant="standard" />
@@ -145,7 +155,16 @@ function InputForm({setRes}) {
             )
             case 1: return (
                 <>
-                    <h3>Contact Details</h3>
+                    <h3
+                        style={{
+                            color: '#4a2818',
+                            fontWeight: '600',
+                            marginTop: '25px',
+                            marginBottom: '20px'
+                        }}
+                    >
+                        Contact Details
+                    </h3>
                     <div className='p-3 row'>
                         <TextField id="standard-basic" value={resumeData.email} onChange={(e) => { setResumeData({ ...resumeData, email: e.target.value }) }} label="Email" variant="standard" />
                         <TextField id="standard-basic" value={resumeData.phone} onChange={(e) => { setResumeData({ ...resumeData, phone: e.target.value }) }} label="Contact Number" variant="standard" />
@@ -156,8 +175,16 @@ function InputForm({setRes}) {
             )
             case 2: return (
                 <>
-                    <h3>Educational Details</h3>
-                    <div className='p-3 row'>
+                    <h3
+                        style={{
+                            color: '#4a2818',
+                            fontWeight: '600',
+                            marginTop: '25px',
+                            marginBottom: '20px'
+                        }}
+                    >
+                        Educational Details
+                    </h3>                    <div className='p-3 row'>
                         <TextField id="standard-basic" value={resumeData.degree} onChange={(e) => { setResumeData({ ...resumeData, degree: e.target.value }) }} label="Bachelor's Degree" variant="standard" />
                         <TextField id="standard-basic" value={resumeData.college} onChange={(e) => { setResumeData({ ...resumeData, college: e.target.value }) }} label="University/College Name" variant="standard" />
                         <TextField id="standard-basic" value={resumeData.year} onChange={(e) => { setResumeData({ ...resumeData, year: e.target.value }) }} label="Year of Graduation " variant="standard" />
@@ -176,7 +203,7 @@ function InputForm({setRes}) {
 
     return (
         <>
-            <Box sx={{ width: '100%' }}>
+            <Box sx={{ width: '100%', padding: '35px 25px', background: 'linear- gradient(135deg, #fff8ef 0 %, #f3d6b3 50 %, #d8b08b 100 %)' }}>
                 <Stepper activeStep={activeStep}>
                     {steps.map((label, index) => {
                         const stepProps = {};
@@ -230,7 +257,7 @@ function InputForm({setRes}) {
                         </Box>
                     </React.Fragment>
                 )}
-            </Box>
+            </Box >
         </>
     )
 }

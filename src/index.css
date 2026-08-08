@@ -4,3 +4,57 @@
   box-sizing: border-box;
   font-family: "Didact Gothic", sans-serif;
 }
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: rgba(0, 0, 0, 0.82);
+  color: white;
+  transform: translateY(-3px);
+}
+
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: white;
+}.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+
+  background: rgba(248, 245, 245, 0);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(251, 251, 251, 0.009);
+  border-radius: 10px;
+  color: white;
+}
+
+

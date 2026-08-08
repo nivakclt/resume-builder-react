@@ -12,7 +12,13 @@ function Header() {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{ backgroundColor: 'purple' }}>
+        <AppBar position="static" sx={{
+          fontWeight: 'bold',
+          fontSize: '14px',
+          background: 'linear-gradient(90deg, #f3d6b3 0%, #c89b72 50%, #9b6b45 100%)',
+          boxShadow: '0 3px 10px rgba(80, 45, 20, 0.2)'
+        }
+        }>
           <Toolbar>
             <IconButton
               size="large"
@@ -21,8 +27,15 @@ function Header() {
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              <img src="https://cdn-icons-png.flaticon.com/512/5404/5404040.png" height={'50px'} alt="" />
-            </IconButton>
+              <img
+                src="https://thumbs.dreamstime.com/b/portfolio-resume-job-icon-black-vector-sketch-portfolio-resume-job-icon-well-organized-simple-vector-use-commercial-purposes-256059435.jpg"
+                height="43px"
+                width="40px"
+                alt="rBuilder logo"
+                style={{
+                  objectFit: 'cover',
+                  borderRadius: '30px'
+                }}/></IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               rBuilder
             </Typography>
