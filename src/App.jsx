@@ -1,13 +1,13 @@
 import './App.css'
 import { Routes,Route } from 'react-router-dom'
-import Home from './pages/Home'
-import ResumeSteps from './pages/ResumeSteps'
-import UserForm from './pages/UserForm'
-import ViewResume from './pages/ViewResume'
-import Downloads from './pages/Downloads'
-import Pnf from './pages/Pnf'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Home from "./Pages/Home";
+import ResumeSteps from "./Pages/ResumeSteps";
+import UserForm from "./Pages/UserForm";
+import ViewResume from "./Pages/ViewResume";
+import Downloads from "./Pages/Downloads";
+import Pnf from "./Pages/Pnf";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 function App() {
   
